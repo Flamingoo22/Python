@@ -1,0 +1,23 @@
+list.append()
+    add item to end of list
+list.extend(b)
+    add list b to the end of list
+list.insert(i,x)
+    i == index number, x= value wanted to add
+list.remove(x)
+    remove x element
+list.pop(i)
+    default == last item
+list.clear()
+    empty the list, equilvalent to del list[:]
+list.index(x[,start[,end]])
+    return the index of 1st appearance of x, can add arguments to limit the search range
+
+list.count(x)
+    return the times x appear in list
+list.reverse()
+    reverse the elements
+list.copy()
+    equilvalent to list[:]
+list.set()
+    eliminate the duplicate values

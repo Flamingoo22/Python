@@ -24,10 +24,16 @@
 # # %s for strings
 # # %d for numbers
 
-a = "MY NAME IS FAN"
+# a = "MY NAME IS FAN"
 
-b = a.split()
-c = "".join(b)
-# list(c).sort()
+# b = a.split()
+# c = "".join(b)
+# # list(c).sort()
 
-print(c)
+# print(c)
+
+
+x = [0]
+
+if not x:
+    print("waaa")
