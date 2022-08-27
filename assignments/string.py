@@ -28,6 +28,6 @@ a = "MY NAME IS FAN"
 
 b = a.split()
 c = "".join(b)
-list(c).sort()
+# list(c).sort()
 
 print(c)
