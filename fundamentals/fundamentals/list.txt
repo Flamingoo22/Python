@@ -21,3 +21,9 @@ list.copy()
     equilvalent to list[:]
 list.set()
     eliminate the duplicate values
+
+
+map(function,iterables)     map executes the function for each the iterable, the iterables will send to function as parameter, function need to have parameter for each the iterable.
+
+
+list(map(list,zip(a,b)))     to make a list of zip(a,b)

@@ -1,0 +1,60 @@
+defined with curly brackets {}
+key:value pairs
+    not index by numbers
+    access values with key
+can contain nested sequences
+    lists/dictionaries/tuples
+
+A dictionary is an unordered collection of objects.
+Values are accessed using a key (typically a string).
+A dictionary can shrink or grow as needed.
+The contents of dictionaries can be modified.
+Dictionaries can be nested.
+Sequence operations such as slice cannot be used with dictionaries.
+
+#literal notation
+person = {"first": "Ada", "last": "Lovelace", "age": 42, "is_organ_donor": True}
+capitals = {} #create an empty dictionary then add values
+capitals["svk"] = "Bratislava"
+capitals["deu"] = "Berlin"
+capitals["dnk"] = "Copenhagen"
+
+
+Dictionary Syntax:
+my_dict["some_string"] = some_value
+
+Python includes the following standalone functions for dictionaries:
+
+len() - give the total length of the dictionary.
+str() - produces a string representation of a dictionary.
+type() - returns the type of the passed variable. If passed variable is a dictionary, it will then return a dict type.
+Here are some very useful Python dictionary methods:
+
+.clear() - removes all elements from the dictionary
+.get(key, default=None) - A safe way to get a value, if the key might not exist. Returns the value for the specified key or None (or a value you specify) if the key is not in the dictionary.
+.update(pairs_to_update) - Add and update multiple key-value pairs at once, by passing in another dictionary of the pairs to update and add.
+
+
+
+Method	            Description                                                                                                         Parameter 
+clear()	            Removes all the elements from the dictionary                                                                        No parameters
+copy()	            Returns a copy of the dictionary                                                                                    No parameters
+fromkeys()	        Returns a dictionary with the specified keys and value                      dict.fromkeys(keys, value)              keys	        Required. An iterable specifying the keys of the new dictionary     
+                                                                                                                                        value	        Optional. The value for all keys. Default value is None
+get()	            Returns the value of the specified key                                      dictionary.get(keyname, value)          keys	        Required. An iterable specifying the keys of the new dictionary     
+                                                                                                                                        value	        Optional. The value for all keys. Default value is None
+items()	            Returns a list containing a tuple for each key value pair                   dictionary.items()                      No parameters
+keys()	            Returns a list containing the dictionary's keys                             dictionary.keys()                                        
+pop()	            Removes the element with the specified key                                  dictionary.pop(keyname, defaultvalue)   keyname	        Required. The keyname of the item you want to remove
+                                                                                                                                        defaultvalue	Optional. A value to return if the specified key do not exist.
+                                                                                                                                                        If this parameter is not specified, and the no item with the specified key is found, an error is raised                                     
+popitem()	        Removes the last inserted key-value pair                                    dictionary.popitem()                    No parameters
+setdefault()	    Returns the value of the specified key. If the key does not exist:          dictionary.setdefault(keyname, value)   keyname	        Required. The keyname of the item you want to return the value from
+                                                                                                                                        value	        Optional.
+                                                                                                                                                        If the key exist, this parameter has no effect.
+                                                                                                                                                        If the key does not exist, this value becomes the key's value
+                                                                                                                                                        Default value None      
+                                                                                                                                                        insert the key, with the specified value    
+update()	        Updates the dictionary with the specified key-value pairs                   dictionary.update(iterable)             iterable	    A dictionary or an iterable object with key value pairs, that will be inserted to the dictionary
+values()	        Returns a list of all the values in the dictionary                          dictionary.values()                     No parameters
+url:https://www.w3schools.com/python/python_ref_dictionary.asp

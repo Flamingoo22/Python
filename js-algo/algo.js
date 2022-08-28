@@ -55,32 +55,32 @@
 // Given two integers a and b, which can be positive or negative, find the sum of all the integers between and including them and return it. If the two numbers are equal return a or b.
 
 
-function twoIntegerSum(a,b){
-    let sum = 0;
-    if(a==b){
-        return a
-    }else if( a > b){
-        for( b ; b <= a; b++){
-            sum +=b;
-        }
-    }else{
-        for(a; a <=b; a++){
-            sum +=a;
-        }
-    }
-    return sum;
-}
+// function twoIntegerSum(a,b){
+//     let sum = 0;
+//     if(a==b){
+//         return a
+//     }else if( a > b){
+//         for( b ; b <= a; b++){
+//             sum +=b;
+//         }
+//     }else{
+//         for(a; a <=b; a++){
+//             sum +=a;
+//         }
+//     }
+//     return sum;
+// }
 
-console.log(twoIntegerSum(-1,5))
+// console.log(twoIntegerSum(-1,5))
 
-//Math : sum of numbers between two points = (number of integers)(point1 + point2)/2
-//Easier way using smarter Math:
+// //Math : sum of numbers between two points = (number of integers)(point1 + point2)/2
+// //Easier way using smarter Math:
 
-function twoIntegerSum(a,b){
-    let max = Math.max(a,b);
-    let min = Math.min(a,b);
-    return (max-min+1)*(max+min)/2;
-}
+// function twoIntegerSum(a,b){
+//     let max = Math.max(a,b);
+//     let min = Math.min(a,b);
+//     return (max-min+1)*(max+min)/2;
+// }
 
 // code testing
 // function a(n,a){
@@ -99,3 +99,54 @@ function twoIntegerSum(a,b){
 
 // console.log(Object.keys(a))  //Object.keys(arr)  return the string iteration of indexes inside the array
 // console.log([...a.keys()])  //...arr.keys()   return the number iteration of indexes inside the array
+
+// You are going to be given a word. Your job is to return the middle character of the word. If the word's length is odd, return the middle character. If the word's length is even, return the middle 2 characters.
+// function getMiddle(s)
+// {
+//   //Code goes here!
+//     let a = s.length/2
+//     if (Number.isInteger(a)){
+//         return s[a-1]+s[a]
+//     }else{
+//     let b = Math.floor(a)
+//         return s[b]
+//     }
+// }
+
+
+// console.log(getMiddle("fkdsajhsfdk"))
+
+// // shorter answers
+// function getMiddle(s)
+// {
+//     return s.substr(Math.ceil(s.length / 2 - 1), s.length % 2 === 0 ? 2 : 1);     // string.substring(a,b) returns a portion of string, takes up to 2 parameters, a=starting index, b=ending index. When only 1 paramter, slice all string starting at that index(inclusive)
+// }
+
+// function getMiddle(s)
+// {
+//     return s.slice((s.length-1)/2, s.length/2+1);  //string.slice is similar to string.substring
+// }
+
+// // Write a function that returns a sequence (index begins with 1) of all the even characters from a string. If the string is smaller than two characters or longer than 100 characters, the function should return "invalid string".
+// function evenChars(string) {
+// //keep coding!
+//     if(string.length < 2 || string.length > 100){
+//         return "invalid string";
+//     }else{
+//         let result = [];
+//         let x = 1;
+//         while(x < string.length){
+//             result.push(string[x]);
+//             x+=2;
+//     }
+//     return result;
+//     }
+// }
+
+// console.log(evenChars("dsajdsald"))
+
+// //short answers:
+// function evenChars(string) {
+//     return (string.length < 2 || string.length > 100) ? "invalid string" : 
+//     [...string].filter((x, i) => i % 2);
+// }
