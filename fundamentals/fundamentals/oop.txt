@@ -1,0 +1,31 @@
+Obejct Oriented Programming
+Object
+Properties = Attributes
+Behavior = methods
+
+class user:
+    attributes:   //what does user have
+        first_name:
+        last_name:
+        age:
+    Methods:       //what does user do
+        birthday()  #increase age
+        say_greeting()  #say hello
+
+Class is the blueprints
+
+class create instances/objects
+
+attributes and methods are default public, but we can set them private and protected
+Private doesn't share with instance and inheritances
+Protected can be share with inheritances
+
+constructor is used to share attributes/methods
+
+Inheritance
+
+Protected
+
+
+Attributes: Characteristics shared by all instances of the class type.
+Methods: Actions that an object can perform. A user in a banking application, for example, may need to be able to calculate age based on the user's birthday or open a new bank account associated with that user.
