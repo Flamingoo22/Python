@@ -62,3 +62,13 @@ url:https://www.w3schools.com/python/python_ref_dictionary.asp
 
 
 dict_name["key  _name"]
+
+
+
+
+
+Dictionaries	            Python
+Objects (misleadingly!)	    JavaScript, JSON
+Maps, Hash Maps	            Java, C++
+Hash Table	                C#
+Associative Array	        PHP
