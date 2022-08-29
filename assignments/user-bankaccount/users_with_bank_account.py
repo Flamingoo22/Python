@@ -43,8 +43,11 @@ class User:
         self.account = {}
     
     def make_bank_account(self,account_number):
-        self.account[f"account_{account_number}"]=(BankAccount(0.01,0))
-        return self
+        if f"account_{account_number}" not in self.account:
+            self.account[f"account_{account_number}"]=(BankAccount(0.01,0))
+            return self
+        else:
+            print("Account already exist")
     
     def make_deposit(self,account_number,amount):
         if amount > 0:
@@ -80,6 +83,7 @@ user1 = User("Jon", "Cena")
 
 # user1.account.display_account_info()
 
+user1.make_bank_account(1)
 user1.make_bank_account(1)
 user1.make_bank_account(2)
 
