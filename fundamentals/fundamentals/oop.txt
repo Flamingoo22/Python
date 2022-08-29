@@ -29,3 +29,4 @@ Protected
 
 Attributes: Characteristics shared by all instances of the class type.
 Methods: Actions that an object can perform. A user in a banking application, for example, may need to be able to calculate age based on the user's birthday or open a new bank account associated with that user.
+
