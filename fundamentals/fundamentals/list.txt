@@ -27,3 +27,10 @@ map(function,iterables)     map executes the function for each the iterable, the
 
 
 list(map(list,zip(a,b)))     to make a list of zip(a,b)
+
+
+spread operator list[:]
+                list[start:end-1]
+
+max(list)   finds the maximum value
+min(list)   finds the minimum value

@@ -58,3 +58,7 @@ setdefault()	    Returns the value of the specified key. If the key does not exi
 update()	        Updates the dictionary with the specified key-value pairs                   dictionary.update(iterable)             iterable	    A dictionary or an iterable object with key value pairs, that will be inserted to the dictionary
 values()	        Returns a list of all the values in the dictionary                          dictionary.values()                     No parameters
 url:https://www.w3schools.com/python/python_ref_dictionary.asp
+
+
+
+dict_name["key  _name"]

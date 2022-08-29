@@ -150,3 +150,43 @@
 //     return (string.length < 2 || string.length > 100) ? "invalid string" : 
 //     [...string].filter((x, i) => i % 2);
 // }
+
+// Convert number to binary
+// function binary(x,y){
+//     let sum = x+y
+//     let binarr=[]
+//     for(sum;sum!=0 ;sum = Math.floor(sum/2)){
+//         if(sum%2 == 0){
+//             binarr.push(0);
+//             console.log(binarr);
+//             console.log(sum);
+//         }else{
+//             binarr.push(1);
+//             console.log(binarr);
+//             console.log(sum)
+//         }
+//     }
+//     z = binarr.reverse().join("")
+//     console.log(z)
+// }
+
+
+// binary(1,2)
+
+// //shorter answer
+// function addBinary(a,b){
+//     return (a+b).toString(2)
+// }
+
+// console.log(addBinary(3,4))
+
+
+function removeDups(a,b){
+
+    let x = a +b;
+    let z = Array.from(new Set(x.split(','))).toString();
+    // document.write(x);
+    console.log(z)
+}
+
+removeDups("dada","dfdfaaa")
