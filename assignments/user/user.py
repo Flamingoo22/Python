@@ -35,18 +35,12 @@ user1 = User("Q","Liu","abra@mail.com",21)
 
 # user1.display_info()
 
-user1.enroll()
+user1.enroll().spend_points(50).display_info()
 
 user2 = User("Dur","Ann","durrr@mail.com",31)
 user3 = User("Phil","Ivy","phil@mail.com",172)
 
-user1.spend_points(50)
+user2.enroll().spend_points(80).display_info()
 
-user2.enroll()
-
-user2.spend_points(80)
-
-user1.display_info()
-user2.display_info()
 user3.display_info()
 
