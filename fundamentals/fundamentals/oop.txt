@@ -30,3 +30,8 @@ Protected
 Attributes: Characteristics shared by all instances of the class type.
 Methods: Actions that an object can perform. A user in a banking application, for example, may need to be able to calculate age based on the user's birthday or open a new bank account associated with that user.
 
+4 pillars of OOP
+    Encapsulation: we can set attributes and methods as public or private
+    Inheritance: we can share the attributes and methods with children class by using keyword: super()
+    Polymorphism: many forms, meaning children classes can inheriance the parent methods, but when reassigned in children class, the method can be override
+    Abstraction: use the method build from another class without coding out all the previous attributes
