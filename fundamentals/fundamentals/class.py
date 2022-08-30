@@ -32,3 +32,7 @@ print(Adidas.price)
 # It's important to know that class methods have no access to the instance attribute or any attribute that starts with self.
 
 # Static methods are functions defined within the class with a decorator @staticmethod.  They have no access on instance or class attributes, so if we need any existing values, they need to be passed in as arguments.
+
+# constructor function is called when class set
+
+x = 6 + "5"

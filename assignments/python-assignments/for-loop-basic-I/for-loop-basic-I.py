@@ -24,7 +24,8 @@ print(i)
 # Countdown by Fours - Print positive numbers starting at 2018, counting down by fours.
 for i in range(2018,1,-4):
     print(i)
-    
+
+
 lowNum = 2
 highNum = 312
 mult = 12

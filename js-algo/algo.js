@@ -181,12 +181,58 @@
 // console.log(addBinary(3,4))
 
 
-function removeDups(a,b){
+// function removeDups(a,b){
 
-    let x = a +b;
-    let z = Array.from(new Set(x.split(','))).toString();
-    // document.write(x);
-    console.log(z)
+//     let x = a +b;
+//     let z = Array.from(new Set(x.split(','))).toString();
+//     // document.write(x);
+//     console.log(z)
+// }
+
+// removeDups("dada","dfdfaaa")
+
+// function toString(x){
+//     y=""
+//     z = x.split("")
+//     console.log(z)
+
+// }
+
+// toString(213223)
+
+
+
+
+// function reverse(x){
+//     return x.split("").reverse().join("")
+// }
+
+// console.log(reverse("ABCDEFG"))
+
+// x = "ABCDEFG"
+
+// y = sorted(x , reverse=true)
+
+// console.log(x.sort().reverse())
+
+let x = "HALO"
+
+      // 0123
+let y = ""
+
+for(let j = x.length-1; j>=0; j--){
+    y += x[j];
+    // console.log(x[j])
 }
 
-removeDups("dada","dfdfaaa")
+console.log(y)
+
+
+// newStrin = "dlkasdlsal"
+
+// console.log(newStrin.length)
+
+
+``` language
+
+```
