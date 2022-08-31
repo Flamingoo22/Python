@@ -35,3 +35,22 @@ Methods: Actions that an object can perform. A user in a banking application, fo
     Inheritance: we can share the attributes and methods with children class by using keyword: super()
     Polymorphism: many forms, meaning children classes can inheriance the parent methods, but when reassigned in children class, the method can be override
     Abstraction: use the method build from another class without coding out all the previous attributes
+
+
+
+OOP -- The four pillars
+
+Encapsulation---
+    group code together into these entities we call classes
+
+Inheritance
+    Ability to create subclasses that have all the attributes and methods of the parent class
+
+
+
+
+
+
+Package + Modules
+Modules are just .py files that hold functionality -- they might be made up of functions, classes, variable, etc
+Package -- are directories that hold multiple modules

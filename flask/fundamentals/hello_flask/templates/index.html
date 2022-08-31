@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayGround</title>
+    <style>
+        body {
+            background-color: linen;
+            margin-top: 10%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        h1 {
+            color: black;
+            margin: 40px;
+        }
+
+        .block{
+            height: 50px;
+            width: 50px;
+            color: aquamarine;
+            
+        }
+
+        </style>
+</head>
+
+
+<body>
+        <h1>Welcome!</h1>
+        <div id = blocks>
+            {% for i in range(0,x): %}
+                <div class="block"></div>
+            {% endfor %}
+        </div>
+</body>
+</html>

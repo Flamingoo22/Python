@@ -1,0 +1,24 @@
+
+Python
+
+Varaible Declaration:
+
+var_name = assign_var
+
+    var_name can be anything
+    assign_var has two main Data Types: Primitives and Composite
+        Primitive
+            Boolean, Numbers, Strings // we cannot perform operation with different data types: otherwise TypeError
+        Composite
+            List
+                list_name = []//list use square brackets to declare
+                list_name = [a,b,c,d,e] // string list
+                index number 0 1 2 3 4  // index number starts from 0
+                    to access list =>  list_name[index_number]
+            Tuples
+                tuple_name = ()//tuple use parentheses to declare
+                    most feature are same as list
+                    tuple is immutable, we cannot change the values inside
+            Dictionary 
+                dic_name = {} //dictionary use curly brackets to declare
+                dic_
