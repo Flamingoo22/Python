@@ -12,7 +12,3 @@ class Card:
     def card_info(self):
         print(f"{self.string_val} of {self.suit} : {self.point_val} points")
         
-
-# card1 = Card("spades",1,1)
-
-# print(card1)

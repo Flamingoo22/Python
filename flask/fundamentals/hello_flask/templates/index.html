@@ -7,21 +7,35 @@
     <title>PlayGround</title>
     <style>
         body {
-            background-color: linen;
-            margin-top: 10%;
+            background-color: aliceblue;
+            padding: 2% 15%;
             display: flex;
             flex-direction: column;
+            gap: 40px;
         }
         
         h1 {
+            text-align: center;
             color: black;
             margin: 40px;
+            font-size: 4em;
+        }
+
+        #blocks{
+            display: flex;
+            flex-direction: row;
+            gap: 50px;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
         }
 
         .block{
-            height: 50px;
-            width: 50px;
-            color: aquamarine;
+            height: 250px;
+            width: 250px;
+            background-color: {{color}};
+             /* rgb(2,254,254);  */
+            border: 3px solid black;
+            border-radius: 10px;
             
         }
 
@@ -31,6 +45,7 @@
 
 <body>
         <h1>Welcome!</h1>
+        
         <div id = blocks>
             {% for i in range(0,x): %}
                 <div class="block"></div>

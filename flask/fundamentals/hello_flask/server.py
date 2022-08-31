@@ -1,3 +1,4 @@
+from turtle import color
 from flask import Flask, render_template  # Import Flask to allow us to create our app
 app = Flask(__name__)    # Create a new instance of the Flask class called "app"
 @app.route('/')          # The "@" decorator associates this route with the function immediately following
@@ -27,9 +28,17 @@ def say(val):
 def repeat(num,val):
     return val * num
 
+# 
+# def play(x):
+#     return render_template("index.html", x=x, color=color)
+
+@app.route("/play")
 @app.route("/play/<int:x>")
-def play(x):
-    return render_template("index.html", x=x)
+@app.route("/play/<int:x>/<color>")  #path variable <>
+def play(x=1,color="rgb(2,254,254)"):
+    return render_template("index.html", x=x, color=color)
+
+
 @app.errorhandler(404)
 def page_not_found(e):
     return "Sorry! No response. Try again.",404
