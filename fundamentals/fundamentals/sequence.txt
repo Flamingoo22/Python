@@ -1,0 +1,9 @@
+max(sequence) returns the largest value in the sequence
+
+sum(sequence) returns the sum of all values in sequence
+
+map(function, sequence) applies the function to every item in the sequence you pass in. Returns a list of the results.
+
+min(sequence) returns the lowest value in a sequence.
+
+sorted(sequence) returns a sorted list of the sequence's values

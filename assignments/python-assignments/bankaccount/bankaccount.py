@@ -11,6 +11,7 @@ class BankAccount:
         BankAccount.all_accounts.append(self.int_rate)
         BankAccount.all_accounts.append(self.balance)
         
+    
     def deposit(self, amount):
         # your code here
         self.balance += amount

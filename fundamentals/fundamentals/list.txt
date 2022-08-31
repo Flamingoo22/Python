@@ -33,4 +33,7 @@ spread operator list[:]
                 list[start:end-1]
 
 max(list)   finds the maximum value
-min(list)   finds the minimum value
+min(list)   finds the minimum value.
+
+
+

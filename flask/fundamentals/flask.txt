@@ -1,0 +1,27 @@
+flask
+    HTTP request/ responses
+    Handles routing in our server
+    Serves up HTML, CSS, JS
+    Pass Data from our server to templates
+    Package data from forms
+    Serves up Json
+    Handle SESSION Cookies
+
+Flask flow
+    Client
+        HTML CSS JS
+
+    Server 
+        Flask
+            Templates + Statics
+            server.py
+
+    Rendering Templates
+    Redirecting
+    Form data
+    GET & POST requests
+    Session
+
+    The HTTP request is made and hits the server.py file.
+    Based on the route we give, it gathers up any HTML, CSS, JS, and data.
+    Then it responds back to the browser with what we return.
