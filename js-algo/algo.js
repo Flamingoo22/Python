@@ -255,46 +255,46 @@
   Default the separator to a comma with a space after it if no separator is provided
 */
 
-const arr1 = [1, 2, 3];
-const separator1 = ", ";
-const expected1 = "1, 2, 3";
+// const arr1 = [1, 2, 3];
+// const separator1 = ", ";
+// const expected1 = "1, 2, 3";
 
-const arr2 = [1, 2, 3];
-const separator2 = "-";
-const expected2 = "1-2-3";
+// const arr2 = [1, 2, 3];
+// const separator2 = "-";
+// const expected2 = "1-2-3";
 
-const arr3 = [1, 2, 3];
-const separator3 = " - ";
-const expected3 = "1 - 2 - 3";
+// const arr3 = [1, 2, 3];
+// const separator3 = " - ";
+// const expected3 = "1 - 2 - 3";
 
-const arr4 = [1];
-const separator4 = ", ";
-const expected4 = "1";
+// const arr4 = [1];
+// const separator4 = ", ";
+// const expected4 = "1";
 
-const arr5 = [];
-const separator5 = ", ";
-const expected5 = "";
+// const arr5 = [];
+// const separator5 = ", ";
+// const expected5 = "";
 
-/**
- * Converts the given array into a string of items separated by the given separator.
- * - Time: O(?).
- * - Space: O(?).
-// //  * @param {Array<string|number|boolean>} arr The items to be joined as a string.
-// //  * @param {string} separator To separate each item of the given arr.
-// //  * @returns {string} The given array items as a string separated by the given separator.
-//  */
-function join(arr,sep){
-    let newStr = ""
-    for(let i =0; i < arr.length; i++){
-        if(i == arr.length-1){
-            newStr += arr[i]
-        }else{
-            newStr += arr[i];
-            newStr += sep;
-        }
-    }
-    return newStr
-}
+// /**
+//  * Converts the given array into a string of items separated by the given separator.
+//  * - Time: O(?).
+//  * - Space: O(?).
+// // //  * @param {Array<string|number|boolean>} arr The items to be joined as a string.
+// // //  * @param {string} separator To separate each item of the given arr.
+// // //  * @returns {string} The given array items as a string separated by the given separator.
+// //  */
+// function join(arr,sep){
+//     let newStr = ""
+//     for(let i =0; i < arr.length; i++){
+//         if(i == arr.length-1){
+//             newStr += arr[i]
+//         }else{
+//             newStr += arr[i];
+//             newStr += sep;
+//         }
+//     }
+//     return newStr
+// }
 //     //Your code here
 // console.log(join(arr3,separator1))
 // console.log(join(arr3,separator2))
@@ -313,27 +313,27 @@ function join(arr,sep){
   Do it with .split first if you need to, then try to do it without
 */
 
-const str1 = "object oriented programming";
-const expectedA = "OOP";
+// const str1 = "object oriented programming";
+// const expectedA = "OOP";
 
-// The 4 pillars of OOP
-const str2 = "abstraction polymorphism inheritance encapsulation";
-const expectedB = "APIE";
+// // The 4 pillars of OOP
+// const str2 = "abstraction polymorphism inheritance encapsulation";
+// const expectedB = "APIE";
 
-const str3 = "software development life cycle";
-const expectedC = "SDLC";
+// const str3 = "software development life cycle";
+// const expectedC = "SDLC";
 
-// Bonus: ignore extra spaces
-const str4 = "  global   information tracker    ";
-const expectedD = "GIT";
+// // Bonus: ignore extra spaces
+// const str4 = "  global   information tracker    ";
+// const expectedD = "GIT";
 
-/**
- * Turns the given str into an acronym.
- * - Time: O(?).
- * - Space: O(?).
-//  * @param {string} wordsStr A string to be turned into an acronym.
-//  * @returns {string} The acronym.
- */
+// /**
+//  * Turns the given str into an acronym.
+//  * - Time: O(?).
+//  * - Space: O(?).
+// //  * @param {string} wordsStr A string to be turned into an acronym.
+// //  * @returns {string} The acronym.
+//  */
 // function acronymize(str) {
 //     //Your code here
 //     let newStr = ""
@@ -369,20 +369,131 @@ const expectedD = "GIT";
 //     }
 //     return acronym.toUpperCase();
 // }
-function acronymize(str) {
-    //Your code here
-    let acronym = "";
-    let words = str.split(" ");
-    console.log(words)
-    for (let i = 0; i < words.length; i++) {
-        if (words[i] !== "") {
-            acronym += words[i][0].toUpperCase();
+// function acronymize(str) {
+//     //Your code here
+//     let acronym = "";
+//     let words = str.split(" ");
+//     console.log(words)
+//     for (let i = 0; i < words.length; i++) {
+//         if (words[i] !== "") {
+//             acronym += words[i][0].toUpperCase();
+//         }
+//     }
+//     return acronym;
+// }
+
+// console.log(acronymize(str1)); // Expected: "OOP"
+// // console.log(acronymize(str2)); // Expected: "APIE"
+// // console.log(acronymize(str3)); // Expected: "SDLC"
+// // console.log(acronymize(str4)); // Expected: "GIT"
+
+// str="aaaabbcccdddee"
+
+// output = newStr="4abb3c3dee"     
+
+/* 
+Given in an alumni interview in 2021.
+String Encode
+You are given a string that may contain sequences of consecutive characters.
+Create a function to shorten a string by including the character,
+then the number of times it appears. 
+
+If final result is not shorter (such as "bb" => "b2" ),
+return the original string.
+//   */
+
+const str1 = "aaaabbcddd";
+const expected1 = "a4bbcd3";
+const expected1b = "a4b2cd3";
+
+const str2 = "";
+const expected2 = "";
+
+const str3 = "a";
+const expected3 = "a";
+
+const str4 = "bbcc";
+const expected4 = "bbcc";
+
+const str5 = "abbbbbbbbbbbbbbbbb"
+const expected5 = "ab17"
+
+// /**
+//    * Encodes the given string such that duplicate characters appear once followed
+//    * by a number representing how many times the char occurs. Only encode strings
+//    * when the result yields a shorter length.
+//    * - Time: O(?).
+//    * - Space: O(?).
+//    * @param {string} str The string to encode.
+//    * @returns {string} The given string encoded.
+//    */
+
+
+// function encodeStr(str) {
+//       //Your code here
+//     newStr=''
+//     count=1
+//     for(let i =0; i<str.length; i++){
+//         if(str[i]==str[i+1]){
+//             count++
+//         }else{
+//             if (count<=2){
+//                 newStr += str[i].repeat(count)
+//                 count=1
+//             }else{
+//             newStr+=str[i]
+//             newStr+=count
+//             count=1
+//             }
+//         }
+//     }
+//     return newStr
+// }
+
+//   console.log(encodeStr(str1)) // Expected: a4bbcd3
+//   console.log(encodeStr(str2)) // Expected: ""
+//   console.log(encodeStr(str3)) // Expected: a
+//   console.log(encodeStr(str4)) // Expected: bbcc
+//   console.log(encodeStr(str5)) // Expected: ab17
+
+const strA = "a3b2c1d3";
+const expectedA = "aaabbcddd";
+
+const strB = "a3b2c12d10";
+const expectedB = "aaabbccccccccccccdddddddddd";
+
+/**
+   * Decodes the given string by duplicating each character by the following int
+   * amount if there is an int after the character.
+   * - Time: O(?).
+   * - Space: O(?).
+//    * @param {string} str An encoded string with characters that may have an int
+//    *    after indicating how many times the character occurs.
+//    * @returns {string} The given str decoded / expanded.
+//    */
+//   //helpful built-ins : isNaN() .repeat() parseInt() 
+function decodeStr(str) {
+      //Your code here
+    let sampleStr =''
+    let newStr = ''
+    let number = ''
+    let count = 0
+    for(let i =0; i<str.length;i++){
+        if(isNaN(str[i])){
+            sampleStr+=str[i]
+        }else{
+            number+=str[i]
+            newStr += sampleStr.repeat(parseInt(number))
+            sampleStr = ''
+            number = ''
+            }
         }
-    }
-    return acronym;
+    // }
+    
+    return newStr
 }
 
-console.log(acronymize(str1)); // Expected: "OOP"
-// console.log(acronymize(str2)); // Expected: "APIE"
-// console.log(acronymize(str3)); // Expected: "SDLC"
-// console.log(acronymize(str4)); // Expected: "GIT"
+console.log(decodeStr(strA))
+console.log(decodeStr(strB))
+//     // console.log(decodeStr(strA)) // Expected: aaabbcddd
+//     console.log(decodeStr(strB)) // Expected: aaabbccccccccccccdddddddddd

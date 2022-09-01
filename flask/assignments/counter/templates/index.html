@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename ='/css/style.css')}}">
+    
+</head>
+<body>
+    <div id="container">
+        <h1>Counter</h1>
+        <p>{{session['btn1']}}</p>
+        <p>{{session['num']}}</p>
+        <div id="btn-row">
+            <a href="/counter" id="btn1">Click</a>
+            <a href="/reset" id="btn2">Reset</a>
+        </div>
+
+        <form action="/increment" method="post">
+            <label for="increment">How much would you like to go up by?</label>
+            <input type="number" name="increment">
+            <input type="submit">
+        </form>
+    </div>
+</body>
+</html>

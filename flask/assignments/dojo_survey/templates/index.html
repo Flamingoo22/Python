@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for ('static', filename='css/style.css')}}">
+</head>
+<body>
+    
+    <div>
+        <form action="/info" method="post">
+            <h1>Dojo Survey</h1>
+            <label for="name">Your Name</label>
+            <input class="box inputbox" type="text" name="name">
+            <label for="dojoLocation">Dojo Location</label>
+            <select class="box select" name="dojo_location" id="">
+                <option value="Online">Online</option>
+                <option value="Onbox">Onbox</option>
+                <option value="Under Ocean">On Ocean</option>
+                <option value="On Ocean">Under Ocean</option>
+                <option value="Earth">Earth</option>
+            </select>
+            <label for="favLanguage">Favorite Language</label>
+            <select class="box select" name="fav_language" id="">
+                <option value="Python">Python</option>
+                <option value="Not Python">Choose Python</option>
+            </select>
+            <label for="comment">Comments:</label>
+            <textarea  class="box inputbox" id="commentbox" name="comment" cols="30" rows="10"></textarea>
+            <label for="rate">How do you feel about this demo</label>
+            <div>
+                <span>Excellent</span><input type="radio" name="rate" class="m-right">
+                <span>Excellent</span><input type="radio" name="rate" class="m-right">
+                <span>Excellent</span><input type="radio" name="rate" class="m-right">
+                <span>Excellent</span><input type="radio" name="rate" class="m-right">
+            <div>
+                <input type="checkbox" name="consent">
+                <label for="consent" id="consent">By checking the box you consent your favorite language is Python</label>
+            </div>
+            <input id="submit" type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>

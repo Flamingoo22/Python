@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: cursive;
+
+}
+
+
+body{
+    padding: 60px 30%;
+}
+
+#container{
+    background-color: rgb(52,58,63);
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    color: aliceblue;
+    gap: 50px;
+    font-size: 1.3em;
+    padding: 40px 80px;
+    border-radius: 10px;
+}
+
+#output{
+    display: flex;
+    flex-direction:column;
+    gap: 30px;
+    width: 100%;
+    border-bottom: 2px double rgb(49,55,60);
+    padding-bottom: 50px;
+}
+
+h1{
+    color: rgb(5,122,253);
+}
+
+a{
+    text-decoration: none;
+    color: rgb(5,122,253);
+}

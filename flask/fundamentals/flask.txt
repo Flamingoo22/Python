@@ -30,3 +30,17 @@ Flask flow
         pipenv shell
     Deactivate
         exit
+
+
+
+How to decode:
+    terminal: Activate python: python
+              import base64
+              base.64.urlsafe_b64decode('url_key===')
+
+How to obtain url_key
+    inspect page
+        >application
+            >Cookies
+                >in it find the one part wants to decode
+                    >under value, copy the first session of code before first "."

@@ -1,5 +1,5 @@
 from turtle import color
-from flask import Flask, render_template  # Import Flask to allow us to create our app
+from flask import Flask, render_template, redirect  # Import Flask to allow us to create our app
 app = Flask(__name__)    # Create a new instance of the Flask class called "app"
 @app.route('/')          # The "@" decorator associates this route with the function immediately following
 def hello_world():
@@ -38,6 +38,10 @@ def repeat(num,val):
 def play(x=1,color="rgb(2,254,254)"):
     return render_template("index.html", x=x, color=color)
 
+
+@app.route("/gg")
+def gg():
+    return "Sorry No Page Found"
 
 @app.errorhandler(404)
 def page_not_found(e):
