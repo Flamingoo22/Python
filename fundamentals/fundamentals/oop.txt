@@ -9,8 +9,8 @@ class user:
         last_name:
         age:
     Methods:       //what does user do
-        birthday()  #increase age
-        say_greeting()  #say hello
+        birthday()          #increase age
+        say_greeting()      #say hello
 
 Class is the blueprints
 

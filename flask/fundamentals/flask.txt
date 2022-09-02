@@ -44,3 +44,12 @@ How to obtain url_key
             >Cookies
                 >in it find the one part wants to decode
                     >under value, copy the first session of code before first "."
+
+
+    request.form return a dictionary of tuples
+
+
+    session['form_num'] = request.form['num']
+
+        if 'form_num' in session:
+            num = session['form_num']

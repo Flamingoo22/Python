@@ -35,7 +35,7 @@ def repeat(num,val):
 @app.route("/play")
 @app.route("/play/<int:x>")
 @app.route("/play/<int:x>/<color>")  #path variable <>
-def play(x=1,color="rgb(2,254,254)"):
+def play(x=3,color="rgb(2,254,254)"):
     return render_template("index.html", x=x, color=color)
 
 

@@ -398,102 +398,193 @@ You are given a string that may contain sequences of consecutive characters.
 Create a function to shorten a string by including the character,
 then the number of times it appears. 
 
-If final result is not shorter (such as "bb" => "b2" ),
-return the original string.
-//   */
+// If final result is not shorter (such as "bb" => "b2" ),
+// return the original string.
+// //   */
 
-const str1 = "aaaabbcddd";
-const expected1 = "a4bbcd3";
-const expected1b = "a4b2cd3";
+// const str1 = "aaaabbcddd";
+// const expected1 = "a4bbcd3";
+// const expected1b = "a4b2cd3";
 
-const str2 = "";
-const expected2 = "";
+// const str2 = "";
+// const expected2 = "";
 
-const str3 = "a";
-const expected3 = "a";
+// const str3 = "a";
+// const expected3 = "a";
 
-const str4 = "bbcc";
-const expected4 = "bbcc";
+// const str4 = "bbcc";
+// const expected4 = "bbcc";
 
-const str5 = "abbbbbbbbbbbbbbbbb"
-const expected5 = "ab17"
+// const str5 = "abbbbbbbbbbbbbbbbb"
+// const expected5 = "ab17"
+
+// // /**
+// //    * Encodes the given string such that duplicate characters appear once followed
+// //    * by a number representing how many times the char occurs. Only encode strings
+// //    * when the result yields a shorter length.
+// //    * - Time: O(?).
+// //    * - Space: O(?).
+// //    * @param {string} str The string to encode.
+// //    * @returns {string} The given string encoded.
+// //    */
+
+
+// // function encodeStr(str) {
+// //       //Your code here
+// //     newStr=''
+// //     count=1
+// //     for(let i =0; i<str.length; i++){
+// //         if(str[i]==str[i+1]){
+// //             count++
+// //         }else{
+// //             if (count<=2){
+// //                 newStr += str[i].repeat(count)
+// //                 count=1
+// //             }else{
+// //             newStr+=str[i]
+// //             newStr+=count
+// //             count=1
+// //             }
+// //         }
+// //     }
+// //     return newStr
+// // }
+
+// //   console.log(encodeStr(str1)) // Expected: a4bbcd3
+// //   console.log(encodeStr(str2)) // Expected: ""
+// //   console.log(encodeStr(str3)) // Expected: a
+// //   console.log(encodeStr(str4)) // Expected: bbcc
+// //   console.log(encodeStr(str5)) // Expected: ab17
+
+// const strA = "a3b2c1d3";
+// const expectedA = "aaabbcddd";
+
+// const strB = "a3b2c12d10";
+// const expectedB = "aaabbccccccccccccdddddddddd";
 
 // /**
-//    * Encodes the given string such that duplicate characters appear once followed
-//    * by a number representing how many times the char occurs. Only encode strings
-//    * when the result yields a shorter length.
+//    * Decodes the given string by duplicating each character by the following int
+//    * amount if there is an int after the character.
 //    * - Time: O(?).
 //    * - Space: O(?).
-//    * @param {string} str The string to encode.
-//    * @returns {string} The given string encoded.
-//    */
-
-
-// function encodeStr(str) {
+// //    * @param {string} str An encoded string with characters that may have an int
+// //    *    after indicating how many times the character occurs.
+// //    * @returns {string} The given str decoded / expanded.
+// //    */
+// //   //helpful built-ins : isNaN() .repeat() parseInt() 
+// function decodeStr(str) {
 //       //Your code here
-//     newStr=''
-//     count=1
-//     for(let i =0; i<str.length; i++){
-//         if(str[i]==str[i+1]){
-//             count++
+//     let sampleStr =''
+//     let newStr = ''
+//     let number = ''
+//     let count = 0
+//     for(let i =0; i<str.length;i++){
+//         if(isNaN(str[i])){
+//             sampleStr+=str[i]
 //         }else{
-//             if (count<=2){
-//                 newStr += str[i].repeat(count)
-//                 count=1
-//             }else{
-//             newStr+=str[i]
-//             newStr+=count
-//             count=1
+//             number+=str[i]
+//             newStr += sampleStr.repeat(parseInt(number))
+//             sampleStr = ''
+//             number = ''
 //             }
 //         }
-//     }
+//     // }
+    
 //     return newStr
 // }
 
-//   console.log(encodeStr(str1)) // Expected: a4bbcd3
-//   console.log(encodeStr(str2)) // Expected: ""
-//   console.log(encodeStr(str3)) // Expected: a
-//   console.log(encodeStr(str4)) // Expected: bbcc
-//   console.log(encodeStr(str5)) // Expected: ab17
+// console.log(decodeStr(strA))
+// console.log(decodeStr(strB))
+// //     // console.log(decodeStr(strA)) // Expected: aaabbcddd
+// //     console.log(decodeStr(strB)) // Expected: aaabbccccccccccccdddddddddd
 
-const strA = "a3b2c1d3";
-const expectedA = "aaabbcddd";
 
-const strB = "a3b2c12d10";
-const expectedB = "aaabbccccccccccccdddddddddd";
 
-/**
-   * Decodes the given string by duplicating each character by the following int
-   * amount if there is an int after the character.
-   * - Time: O(?).
-   * - Space: O(?).
-//    * @param {string} str An encoded string with characters that may have an int
-//    *    after indicating how many times the character occurs.
-//    * @returns {string} The given str decoded / expanded.
-//    */
-//   //helpful built-ins : isNaN() .repeat() parseInt() 
-function decodeStr(str) {
-      //Your code here
-    let sampleStr =''
-    let newStr = ''
-    let number = ''
-    let count = 0
-    for(let i =0; i<str.length;i++){
-        if(isNaN(str[i])){
-            sampleStr+=str[i]
-        }else{
-            number+=str[i]
-            newStr += sampleStr.repeat(parseInt(number))
-            sampleStr = ''
-            number = ''
-            }
-        }
-    // }
-    
-    return newStr
-}
+/* 
+  String: Is Palindrome
+  Create a function that returns a boolean whether the string is a strict palindrome. 
+    - palindrome = string that is same forwards and backwards
+  
+  Do not ignore spaces, punctuation or capitalization
+*/
+// RIOT Read Input Output Talk
+// const str1 = "a x a";
+// const expected1 = true;
 
-console.log(decodeStr(strA))
-console.log(decodeStr(strB))
-//     // console.log(decodeStr(strA)) // Expected: aaabbcddd
-//     console.log(decodeStr(strB)) // Expected: aaabbccccccccccccdddddddddd
+// const str2 = "racecar";
+// const expected2 = true;
+
+// const str3 = "Dud";
+// const expected3 = false;
+
+// const str4 = "oho!";
+// const expected4 = false;
+
+// const str5 = "abba"
+// const expected5 = true;
+
+
+// function isPalindrome(str) {
+//   for (let j=str.length-1; j > str.length/2 ; j--){
+//     if(str[str.length-j-1] == str[j]){
+//       // console.log(str[j])
+//       continue;
+//     }else{
+//       // console.log(str[j])
+//       return "false"
+//     }
+//   }
+//   return "true"
+// }
+
+
+// // console.log(isPalindrome(str1)) //expected: true
+// // console.log(isPalindrome(str2)) //expected: true
+// // console.log(isPalindrome(str3)) //expected: false
+// // console.log(isPalindrome(str4)) //expected: false
+// // console.log(isPalindrome(str5)) //expected: true
+
+// /* 
+//   Zip Arrays into Map
+  
+  
+//   Given two arrays, create an associative array (aka hash map, an obj / dictionary) containing keys from the first array, and values from the second.
+//   Associative arrays are sometimes called maps because a key (string) maps to a value 
+// */
+
+// const keys1 = ["flavor", "size", "is_delicious"];
+// const vals1 = ["chocolate", 10, true];
+// const expectedA = {
+//     flavor: 'chocolate',
+//     size: 10,
+//     is_delicious: true,
+// };
+
+// const keys2 = [];
+// const vals2 = [];
+// const expectedB = {};
+
+// const keys3 = ['name', 'number', 'type', 'evolves_from']
+// const vals3 = ['Gyarados', 130, 'water/flying', 'Magikarp']
+// const expectedC = {
+//     name: 'Gyarados',
+//     number: 130,
+//     type: 'water/flying',
+//     evolves_from: 'Magikarp'
+// }
+
+// function zipArraysIntoMap(keys, values) {
+//     //Your code here
+//   if(keys.length !== values.length){
+//     return false
+//   }
+//   let dict={}
+//   for(let i=0; i<keys.length;i++){
+//     dict[keys[i]]=values[i]
+//   }
+//   return dict
+// }
+// console.log(zipArraysIntoMap(keys1, vals1)) // expected: { flavor: 'chocolate', size: 10, is_delicious: true } (order may vary)
+// console.log(zipArraysIntoMap(keys2, vals2)) // expected: {} 
+// console.log(zipArraysIntoMap(keys3, vals3)) // expected: { name: 'Gyarados', number: 130, type: 'water/flying', evolves_from: 'Magikarp' } (order may vary)
+

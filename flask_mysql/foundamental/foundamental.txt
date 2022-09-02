@@ -1,0 +1,98 @@
+SQL                                  NoSQL
+MySQL, Postgres,
+SQLite, Microsoft SQL server        MongoDB
+Oracle
+
+If the information doesn't need to be permanet saved, we can also use memory base, fast response time but will lost the data once server is offline. such as Memcache, Redis
+
+customers(data_schema)
+    id
+    name
+    email
+    created at
+    description
+    hobbies
+
+SQL(record)
+    id:____(auto)
+    name:____(255 characters)
+    email:____(255 characters)
+    created at:____(date time)
+    description:____(text)
+    hobbies:_____ (text)
+    SQL provides prefill types and clients have to follow the format.
+
+NoSQL(record)
+    __:___
+    __:___
+    __:___
+    __:___
+    __:___
+    NoSQL provide no prefill types, can store whatever client wants, messy data, many cleanup work required
+
+
+HTML and CSS that make up the  view  of a particular page
+backend logic that dictates the functionality
+Databases are mere collections of organized information that can be easily accessed, managed and updated
+
+ERD
+    ERD is the abbreviation for 'Entity Relationship Diagram', simply put, visual planes of how database looks and behaves
+    An ERD is a map of the structure of how we want to store our data, and SQL is the language we use to manipulate the data according to the relationships we define in our ERD.
+    much easier to move from a relational database to a non-relational database.
+
+Overview:
+    1.Database relationships
+        One to One
+        One to Many
+        Many to Many
+    2.3 Forms of Normalization
+    3.MySQL Workbench
+    4.RDBMS
+    5.Data types
+    6.Indexing
+
+By dividing our data into different tables, we make each table good at one thing: store instances or rows of that data.
+By separating the tables, databases become more modular. Meaning we can create our own custom tables depending on the task in question using SQL. 
+Using the strategy of normalizing our tables and establishing relationships between them because we want to save storage space; and also because it makes our database more modular so we can create more variety of custom tables using SQL.
+
+
+
+One - One
+    Both side is unique, no repeated on both side
+
+One - Many
+    One side is unique, no repeat. And another side can be repeated
+        ex. One guest can place many orders
+
+Many - Many
+    Both sides are not unique, all id's can be repeated. But pairs are unique. 
+        ex. One order can contain many different items. Same item can appears in many different orders.
+            But same item won't be repeatedly show in the same order.
+                Purchasing multiple the same items will introduce another joining table for item vs quantities.
+
+Normalization
+    Re-organize the data into precise, non-repeated, corresponding data. 
+        cannot have a non-key column that is dependent on another non-key column.
+
+Foreign keys are the ones that can repeat itself/ belongs to primary key
+Primary key is not repeated
+    ex. States have many cities
+        states are the primary keys
+        cities are the foreign keys  //  many cities belong to one state
+            Even for one - one
+                one social sercuity belongs to one person
+                    foreign key                 primary key
+
+The most important thing to remember about data design is to make sure we do not repeat data
+
+
+
+
+************IMPORTANT GUILDELINE**********************
+make the table name plural and ALL lowercase - make it plural (ex. users, leads, sites, clients, chapters, courses, modules)
+
+use "id" as the primary key - name it id (also make it auto-incremented).
+
+name foreign keys with singular_table_name_id when referencing to a primary key in another table name it [singular name of the table you're referring to]_id (ex. user_id, lead_id, site_id, client_id, chapter_id, course_id, module_id).
+
+use created_at and updated_at as columns for the timestamp in EVERY table you create.
