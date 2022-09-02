@@ -74,7 +74,10 @@ Normalization
     Re-organize the data into precise, non-repeated, corresponding data. 
         cannot have a non-key column that is dependent on another non-key column.
 
-Foreign keys are the ones that can repeat itself/ belongs to primary key
+Each Table has its own primary key and foreign key
+
+Foreign keys are the ones that can repeat itself
+
 Primary key is not repeated
     ex. States have many cities
         states are the primary keys
