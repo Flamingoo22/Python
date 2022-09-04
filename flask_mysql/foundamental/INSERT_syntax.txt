@@ -1,0 +1,4 @@
+INSERT INTO name_table (name_column1, name_column2, etc..)
+VALUES ('value1','value2',etc..)
+
+number of name_column MUST match number of values

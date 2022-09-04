@@ -13,14 +13,14 @@
             <h1>Welcome to the Great Number Game!!!</h1>
             <p>I am thinking of a number between 1 and 100</p>
             {% if 'result' not in session %}
-                <form class="container-sm text-bg-dark d-flex flex-column text-center gap-4 p-4" action="/testing" method="post">
+                <form class="text-bg-dark d-flex flex-column text-center gap-4 p-4" action="/testing" method="post">
                     <p>Take a guess!!</p>
                     <input type="number" name="number">
                     <input type="submit" value="Guess" class="btn btn-primary btn-lg">
                 </form>
             {% endif %}
             {% if session['result'] == 'TOO LOW!!'%}
-                <div class="bg-danger vh-50">
+                <div class="bg-danger mh-100">
                     <p>{{session['result']}}</p>
                 </div>
                 <form class="container-sm text-bg-dark d-flex flex-column text-center gap-4 p-4" action="/testing" method="post">
@@ -30,7 +30,7 @@
                 </form>
             {% endif %}
             {% if session['result'] == 'TOO BIG!!'%}
-                <div class="bg-danger vh-50">
+                <div class="bg-danger">
                     <p>{{session['result']}}</p>
                 </div>
                 <form class="container-sm text-bg-dark d-flex flex-column text-center gap-4 p-4" action="/testing" method="post">
@@ -40,10 +40,9 @@
                 </form>
             {% endif %}
             {% if session['result'] == 'Correct!'%}
-                <div id="rightanswer" class="bg-success vh-50">
+                <div id="rightanswer" class="bg-success ">
                     <p class="text-warning h1">{{session['random']}} was the number!</p>
                     <a href="/again" class="btn btn-warning my-2">Play again</a>
-                
                 </div>
             {% endif %}
         </div>

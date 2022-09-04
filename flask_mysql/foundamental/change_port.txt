@@ -1,0 +1,14 @@
+[client]
+port = 3307
+[mysqld]
+port = 3307
+
+Make sure this file gets saved to one the following directories, depending on your OS
+
+Windows: C:\MySQL\MySQLServer\my.cnf
+Additional resources about the windows my.cnf file can be found here.
+https://stackoverflow.com/questions/2482234/how-do-i-find-the-mysql-my-cnf-location#answer-2485758
+
+without cursor runs highlighted or whole file
+
+with cursor will only run the line where cursor is located

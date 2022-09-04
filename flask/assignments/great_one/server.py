@@ -8,16 +8,16 @@ app.secret_key = 'dasdad'
 @app.route('/', methods=['GET','POST'])
 def index():
     if request.method == 'POST':
-        if 'random' in session:                             #test if random number is in the session
-            pass                                            #if we already have a random number, move on
+        if 'random' in session:                               #test if random number is in the session
+            pass                                              #if we already have a random number, move on
         else:
-            session['random']=random.randint(1,100)         #if not, create one
-            print(session['random'])                        #cheating answer
-        session['number']= request.form['number']           #get the guess answer
-        if int(session['number']) > session['random']:      #if answer is too big, print too BIGGG
+            session['random']=random.randint(1,100)           #if not, create one
+            print(session['random'])                          #cheating answer
+        session['number']= request.form['number']             #get the guess answer
+        if int(session['number']) > session['random']:        #if answer is too big, print too BIGGG
             session.pop('number')
             result = "TOO BIG!!"
-        elif int(session['number']) < session['random']:    #if guess is small, print too smalll
+        elif int(session['number']) < session['random']:      #if guess is small, print too smalll
             session.pop('number')
             result = "TOO SMALL!!"
         else:

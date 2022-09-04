@@ -1,0 +1,90 @@
+SELECT
+
+    SELECT population FROM world
+    WHERE name = 'France'
+
+Show the name and the population for 'Brazil', 'Russia', 'India', 'China'
+    SELECT name, population FROM world
+    WHERE name IN ('Brazil', 'Russia', 'India', 'China');
+
+Shows countries with an area of 250,000-300,000 sq. km
+    SELECT name, area FROM world
+    WHERE area BETWEEN 250000 AND 300000
+
+Find the country that start with Y
+    SELECT name FROM world
+    WHERE name LIKE 'Y%'
+
+Find the countries that end with y
+    SELECT name FROM world
+    WHERE name LIKE '%y'
+
+Find the countries that contain the letter x
+    SELECT name FROM world
+    WHERE name LIKE '%x%'
+
+Find the countries that start with C and end with ia
+    SELECT name FROM world
+    WHERE name LIKE 'C%ia'
+
+Find the countries that have "t" as the second character.
+underscore can be use as a single character wildcard.
+    SELECT name FROM world
+    WHERE name LIKE '_t%'
+    ORDER BY name
+
+Find the countries that have two "o" characters separated by two others.
+    SELECT name FROM world
+    WHERE name LIKE '%o__o%'
+
+Find the countries that have exactly four characters.
+    SELECT name FROM world
+    WHERE name LIKE '____'
+
+Find the country where the name is the capital city.
+    SELECT name, capital, continent
+    FROM world
+    WHERE name LIKE capital
+
+Find the country where the capital is the country plus "City".
+    SELECT name
+    FROM world
+    WHERE concat(name, ' City') LIKE capital
+
+Find the capital and the name where the capital includes the name of the country.
+    SELECT capital, name
+    FROM world
+    WHERE capital LIKE name+'%'
+
+
+Show the countries that are big by area (more than 3 million) or big by population (more than 250 million) but not both. Show name, population and area.
+    SELECT name, population, area FROM world
+    WHERE population > 250000000 OR area > 3000000
+
+
+Show the name and capital where the name and the capital have the same number of characters.
+    SELECT name, capital
+    FROM world
+    WHERE LEN(name) LIKE LEN(capital)
+
+LEFT(s,n) allows you to extract n characters from the start of the string s.
+   LEFT('Hello world', 4) -> 'Hell'    
+
+ROUND(f,p) returns f rounded to p decimal places.
+    ROUND(7253.86, 0)    ->  7254
+
+'%'
+% is wild card for all of the character
+
+'_'
+undersocre _ is a wild card for single character
+
+LEN(name_column)
+return length of characters
+
+<> is not equal
+
+name_columns LIKE '%' AND etc
+
+name_columns IN ('element1","element2",etc)
+compares columns with tuples of elements, and return anything that matches any one of the element

@@ -1,0 +1,42 @@
+My SQL Functions
+
+--CONCAT()
+SELECT CONCAT(name_column, any string) FROM name_table
+    concat is similar to format string in python
+
+--CONCAT_WS()
+SELECT CONCAT_WS(how you like to separate the column values, name_column) FROM name_table
+    concat_ws() applies separation to each value
+
+LENGTH(name_column) FROM name_table or LEN(name_column) FROM name_table
+return the number of characters
+
+LOWER(name_column) FROM name_table
+return the string in lowercase
+
+HOUR(name_column with DATATYPE == DATETIME) FROM name_table
+return the number of hour in the value
+
+DAYNAME(name_column with DATATYPE == DATETIME) FROM name_table
+return the weekday , ex. TUESDAY, WEDNESDAY, etc..
+
+MONTH(name_column with DATATYPE == DATETIME) FROM name_table
+return the number of month in the value
+
+NOW()
+return the current time
+
+DATE_FORMAT(name_column, '%W' '%W %M %e, %Y') FROM name_table
+return time in form of weekday month day, year
+                    ex. Wednesday Auguest 21, 2011
+we can also format into different forms using:
+https://www.w3schools.com/sql/func_mysql_date_format.asp
+
+LIMIT x,y;
+    x represent how many records we want to skip.
+    y represent how many records after x we like to get. 
+    (regardless of that record's id)
+    
+BETWEEN operator can be use on VARCHAR type as well
+
+specify a grouping function when using GROUP BY statement

@@ -28,10 +28,10 @@ def num_counter():
 
 @app.route('/increment', methods=['POST'])
 def increment():
-    if request.form['increment'] == "":
+    if request.form['increment'] == "":    #to prevent server error if user input a sp ace
         return redirect('/')
     else:
-        session['increment'] = request.form['increment']
+        session['increment'] = request.form['increment']  #if user provides an integer, we will retreive the information
         # print(f"your increment number is {session['increment']}")
         return redirect('/')
 

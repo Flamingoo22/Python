@@ -1,0 +1,11 @@
+UPDATE table_name
+SET column1 = value1, column2 = value2, ...
+WHERE condition;
+
+
+or we can do
+
+UPDATE schema_name.table_name
+SET column1 = value1, column2 = value2, ...
+WHERE condition;
+

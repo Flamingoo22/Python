@@ -69,7 +69,17 @@ Many - Many
         ex. One order can contain many different items. Same item can appears in many different orders.
             But same item won't be repeatedly show in the same order.
                 Purchasing multiple the same items will introduce another joining table for item vs quantities.
-
+    Easier way to distinguish ONE-MANY & MANY-MANY  
+        do case study to quantitative study on both side:
+            ex. user vs reviews:
+                one user can leave many reviews
+                one review cannot be done by multiple/many users
+                therefore users vs review is one-many relationships
+            ex2.user vs foods:
+                one user can like many foods
+                one food can be like by many users
+                therefore users vs food is many to many relationships
+                    the joining table will be "favorite_food" 
 Normalization
     Re-organize the data into precise, non-repeated, corresponding data. 
         cannot have a non-key column that is dependent on another non-key column.
@@ -80,11 +90,12 @@ Foreign keys are the ones that can repeat itself
 
 Primary key is not repeated
     ex. States have many cities
-        states are the primary keys
-        cities are the foreign keys  //  many cities belong to one state
-            Even for one - one
-                one social sercuity belongs to one person
-                    foreign key                 primary key
+            The foreign keys are located at cities table
+                states are the foreign keys
+                cities are the primary keys  //  many cities belong to one state
+                    Even for one - one
+                        one social sercuity belongs to one person
+                            foreign key                 primary key
 
 The most important thing to remember about data design is to make sure we do not repeat data
 
@@ -99,3 +110,64 @@ use "id" as the primary key - name it id (also make it auto-incremented).
 name foreign keys with singular_table_name_id when referencing to a primary key in another table name it [singular name of the table you're referring to]_id (ex. user_id, lead_id, site_id, client_id, chapter_id, course_id, module_id).
 
 use created_at and updated_at as columns for the timestamp in EVERY table you create.
+
+
+VARCHAR (number of characters)
+    use to store string of non-numeric characters up to 255. VARCHAR should be used for values with different character lengths like an email, first_name, or last_name.
+
+CHAR (number of characters)
+    also use to store non-numeric values, it will use up all the space regardless what value is added. Char would work well for something like a state_abbreviation.
+
+INT
+    store integers
+        good to use for most normal number values like a phone_number or a zip_code.
+            unsigned (positive numbers only) - can store numerical values from 0 up to 4294967295
+            signed (positive and negative numbers) - can store numerical values from -2147483648 up to 2147483647
+TINYINT
+    Store small numbers. A good example of something that would use a TINYINT is user level identifier (0 - inactive user, 1 - active user, 9 - admin).
+        unsigned - can store numerical values from 0 up to 255
+        signed - can store numerical values from -128 up to 127
+
+FLOAT
+    store number with decimals
+
+TEXT
+    to store large amount of text, in which VARCHAR cannot handle.
+
+DATETIME
+    Used for time-stamps, like created_at and updated_at, or to store a date and time in the format YYYY-MM-DD hh:mm:ss
+
+DATE
+    Used for storing general dates in the format YYYY-MM-DD, for example, a birthdate.
+
+4 Queries
+    select
+    insert
+        error. column count doesn't match value at row 1; when inserting with wrong numbers of parameters
+        error. unknown column, misspelled the paramter
+    update
+    delete
+
+-- SELECT
+-- SELECT what_to_grab FROM name_of_table WHERE condition  * means ALL
+SELECT first_name, last_name FROM users WHERE id < 4 ORDER BY birthday DESC; 
+-- INSERT
+-- INSERT INTO name_of_table(list_of_column_names_to_add_data_to)
+-- VALUES values for each column ;
+INSERT INTO users(first_name, last_name, handle, birthday, created_at, updated_at)
+VALUES ('Test', 'User', 'cool_guy123', '1998-01-19', NOW(), NOW()); 
+INSERT INTO tweets (tweet, user_id, created_at, updated_at)
+VALUES ("this is my tweet", 6, NOW(),NOW());
+-- SET SQL_SAFE_UPDATES = 0; to disable safety key in MySQL Workbench
+-- UPDATE
+-- UPDATE table SET column = value, column = value WHERE condition
+UPDATE users SET first_name = 'Johnny', last_name = 'Johnny' WHERE id = 6; 
+-- DELETE
+-- DELETE FROM table WHERE condition
+DELETE FROM users WHERE id = 7;
+-- if we delete a user with id = 7, the next new inserted user will starts at id = 8.
+
+SELECT UPPER(handle) AS big_handle FROM users;
+-- only display the handle infos into uppercase without creating a new column.
+SELECT CONCAT(first_name, " ", last_name) AS full_name from users;
+SELECT *, DAYNAME(birthday) AS born_on from users;
