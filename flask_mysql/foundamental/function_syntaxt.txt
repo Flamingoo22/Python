@@ -40,3 +40,7 @@ LIMIT x,y;
 BETWEEN operator can be use on VARCHAR type as well
 
 specify a grouping function when using GROUP BY statement
+
+An aggregate function performs a calculation on a set of values, and returns a single value. Except for COUNT(*) , aggregate functions ignore null values. Aggregate functions are often used with the GROUP BY clause of the SELECT statement. All aggregate functions are deterministic
+
+aggregate function cannot be used in WHERE clause

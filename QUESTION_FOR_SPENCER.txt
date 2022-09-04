@@ -1,0 +1,10 @@
+-- WITH first_fav3 AS
+-- (
+-- SELECT TOP 1 * 
+-- FROM fav_books
+-- WHERE fav_books.book_id = 3
+-- )
+-- DELETE
+-- FROM fav_books
+-- WHERE fav_books.id = first_fav3
+
