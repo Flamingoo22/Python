@@ -52,3 +52,15 @@ def process_money():
 
 if __name__ == "__main__":
     app.run(debug = True)
+    
+    
+    
+# FOR THE BONUSES
+# SENSEI BONUS: Have the activities display in descending order, with the most recent activity first
+# let variable start at the length and decrement.
+
+# SENSEI BONUS: Provide winning parameters to the game--for example, a user must obtain 500 gold in less than 15 moves. Only display the reset button once the user has won or lost.
+# add a count everytime page is re-enter count+1; and set if conditions inside the index.html file if the count reached 15 the failure page will pop
+
+# SENSEI BONUS: Complete the "/process_money" route without 4 conditional statements (i.e. without doing if farm...elif cave...etc.)
+# Not sure about this... Ask Spencer on Tuesday
