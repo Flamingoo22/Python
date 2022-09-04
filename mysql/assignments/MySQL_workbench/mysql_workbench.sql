@@ -20,4 +20,4 @@ SET name='JONNY', created_at = NOW(), updated_at = NOW()
 WHERE names.id=4;
 
 INSERT INTO names(name, created_at, updated_at)
-VALUES('Ron',NOW(),NOW())
+VALUES('Ron',NOW(),NOW())users
