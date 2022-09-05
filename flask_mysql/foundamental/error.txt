@@ -1,0 +1,32 @@
+TypeError
+TypeError: tuple indices must be integers or slices, not str
+    #cursorclass = pymysql.cursors.DictCursor
+
+TypeError
+TypeError: 'bool' object is not iterable
+    # db = db,
+
+OperationalError
+pymysql.err.OperationalError: (1045, "Access denied for user 'root'@'localhost' (using password: NO)")
+    # password = 'root', 
+
+RuntimeError
+RuntimeError: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+    # user = 'root', 
+
+host = 'localhost', didn't trigger any error
+
+AttributeError
+AttributeError: 'MySQLConnection' object has no attribute 'connection'
+    # self.connection = connection
+
+TypeError
+TypeError: __init__() should return None, not 'bool'
+    # def query_db(self, query, data=None):
+
+SyntaxError: expected 'except' or 'finally' block
+    except Exception as e:
+                # if the query fails the method will return FALSE
+                print("Something went wrong", e)
+                return False
+            finally:

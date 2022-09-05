@@ -1,0 +1,20 @@
+pyMySQL retreive the data and transform them into a list of dictionaries
+    each row of the table will be a dictionary
+
+MVC
+    OOP into application
+    MODEL(representional classes of MySQL tables) 
+    VIEW(templates, static files, everything display on the page) 
+    CONTROLLER(Aceept the HTTP requests, and sending the response)
+        FLOW
+            server.py >
+             controller >
+              models >
+               MySQL(query) >
+                sql turns the info lists of dictionaries/objects to model >
+                 controller >
+                  templates >
+                   server.py
+
+In the project level, run the following command line
+    new_project_folder $ pipenv install PyMySQL flask
