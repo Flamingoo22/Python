@@ -18,3 +18,21 @@ MVC
 
 In the project level, run the following command line
     new_project_folder $ pipenv install PyMySQL flask
+
+
+mysqlconnect.py 
+    contains a class from which we can build an object that represent a pre-build database
+    and help us create a database connection and run queries
+The query_db() method may return 
+    a list of dictionaries where each dictionary represent a row in the table
+The query_db() method returns 
+    the row id
+        when we run an insert query
+The main reason to sanitize our data is to (USE prepared-statemtns)
+    prevent SQL injection
+The query_db method returns 
+    Nothing
+        When we delete or update query
+The query_db will return 
+    False 
+        if our query does not executed correctly

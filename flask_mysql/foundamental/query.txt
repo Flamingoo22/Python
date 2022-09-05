@@ -1,0 +1,34 @@
+PREPARED STATEMENT
+query = 'UPDATE friends SET first_name = %(fn)s  WHERE id=%(id_num)s;'
+data = {
+    'fn': //possibily a value from a from,
+    'id_num': //possibily a value from the url,
+}
+mysql.query_db (query, data)
+
+connection to db - mysql - the instance of MySQLConnection class
+query string - 'INSERT INTO...' - the string that will eventually be executed on our MySQL server
+data dictionary - the values that will be interpolated into the query string
+data dictionary keys - fn, id_num - the keys of the data dictionary used in query
+    (i.e. %(key_name)s)
+query = "SELECT * FROM users WHERE email = %(email)s;"
+    
+# the placeholder variable is called email
+# it must match the key name in the data dictionary
+data = { 
+    # this 'email' Key in data must be named to match the placeholder in the query.
+    'email' : request.form['email'] 
+}
+result = mysql.query_db(query, data)
+
+
+
+
+String Interpolation
+# this code is for demonstration purposes only
+# DO NOT use this code in production, it will leave you vulnerable to SQL injection
+query = f"SELECT * FROM users WHERE email = '{request.form['email']}';"
+result = mysql.query_db(query)
+
+    using string interpolation will open out possibily for SQL injection
+        meaning people with SQL knowledge will be able to hack into our data base and retreive or change the data
