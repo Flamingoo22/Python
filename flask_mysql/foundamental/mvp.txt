@@ -1,0 +1,13 @@
+MVC
+    Model
+        May build database tables
+        Handles logic that relies on data
+        Interfaces with the database
+    View	
+        HTML page that gets served to the client
+        May contain some logic to be handled by a template engine
+    Controller
+        Receives incoming requests
+        Minimal logic
+        Calls on models to aggregate/process data
+        Determines appropriate response

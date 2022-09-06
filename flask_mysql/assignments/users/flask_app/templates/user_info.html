@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Info</title>
+</head>
+<body>
+    <div class="table container">
+        <h1>User {{user.id}}</h1>
+        <div>
+            <p class="mb-3">Full Name:{{user['first_name']}}{{ user['last_name']}}</p>
+            <p class="mb-3">Email: {{user['email']}}</p>
+            <p class="mb-3">Created On: {{user.created_at}}</p>
+            <p class="mb-3">Last Updated On: {{user.updated_at}}</p>
+        </div>
+        <div>
+            <a href="/users/{{user['id']}}/edit">Edit</a> |
+            <a href="/delete/{{user['id']}}">Delete</a>
+        </div>
+    </div>
+</body>
+</html>
