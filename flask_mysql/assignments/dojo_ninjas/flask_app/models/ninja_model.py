@@ -21,7 +21,7 @@ class Ninja:
     
     @classmethod
     def save (cls, data ):
-        query = 'INSERT INTO ninjas (dojo_id, first_name, last_name, age, created_at, updated_at) VALUES (%(dojo_id)s %(fname)s, %(lname)s, %(age)s, NOW(), NOW() ); '
+        query = 'INSERT INTO ninjas (dojo_id, first_name, last_name, age, created_at, updated_at) VALUES (%(dojo_id)s, %(fname)s, %(lname)s, %(age)s, NOW(), NOW() ); '
         return connectToMySQL('dojos_and_ninjas').query_db( query, data )
     
     @classmethod
@@ -38,5 +38,5 @@ class Ninja:
     def get_one(cls, data):
         query = 'SELECT * FROM ninjas WHERE ninjas.id = %(id)s;'
         ninja_from_db = connectToMySQL('ninjas').query_db(query, data)
-        
-        return cls(ninja_from_db[0])
+        if ninja_from_db:
+            return cls(ninja_from_db[0])

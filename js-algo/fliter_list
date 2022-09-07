@@ -1,0 +1,13 @@
+function filter_list(arr){
+    for(let i = 0; i<arr.length-1; i++){
+        if(isNaN(arr[i])){
+            arr.splice(i,1)
+        }
+    }
+    return arr
+}
+
+
+arr1 = [1,2,'a','b']
+
+console.log(filter_list(arr1))

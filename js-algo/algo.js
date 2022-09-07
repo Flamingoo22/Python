@@ -429,26 +429,26 @@ then the number of times it appears.
 // //    */
 
 
-// // function encodeStr(str) {
-// //       //Your code here
-// //     newStr=''
-// //     count=1
-// //     for(let i =0; i<str.length; i++){
-// //         if(str[i]==str[i+1]){
-// //             count++
-// //         }else{
-// //             if (count<=2){
-// //                 newStr += str[i].repeat(count)
-// //                 count=1
-// //             }else{
-// //             newStr+=str[i]
-// //             newStr+=count
-// //             count=1
-// //             }
-// //         }
-// //     }
-// //     return newStr
-// // }
+function encodeStr(str) {
+      //Your code here
+    newStr=''
+    count=1
+    for(let i =0; i<str.length; i++){
+        if(str[i]==str[i+1]){
+            count++
+        }else{
+            if (count<=2){
+                newStr += str[i].repeat(count)
+                count=1
+            }else{
+            newStr+=str[i]
+            newStr+=count
+            count=1
+            }
+        }
+    }
+    return newStr
+}
 
 // //   console.log(encodeStr(str1)) // Expected: a4bbcd3
 // //   console.log(encodeStr(str2)) // Expected: ""
@@ -556,7 +556,7 @@ then the number of times it appears.
 // const vals1 = ["chocolate", 10, true];
 // const expectedA = {
 //     flavor: 'chocolate',
-//     size: 10,
+//     size: 10,                                      
 //     is_delicious: true,
 // };
 

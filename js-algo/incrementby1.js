@@ -31,24 +31,22 @@
 // digits does not contain any leading 0's.
 
 
-function increment_by_one(arr){
-    a = arr.join('')
-    console.log(a)
-    b = long.parseLong(a)
-    console.log(b)
-    // console.log(b)
-    c = b.toString().split('')
-    return c
-}
+// function increment_by_one(arr){
+//     a = arr.join('')
+//     console.log(a)
+//     b = long.parseLong(a)
+//     console.log(b)
+//     // console.log(b)
+//     c = b.toString().split('')
+//     return c
+// }
 
 
-arr1 = [1,2,3,4,5]
-arr2 = [6,1,4,5,3,9,0,1,9,5,1,8,6,7,0,5,3,1,2]
 
-// increment_by_one(arr1)
-console.log(increment_by_one(arr1))
-// increment_by_one(arr2)
-console.log(increment_by_one(arr2))
+// // increment_by_one(arr1)
+// console.log(increment_by_one(arr1))
+// // increment_by_one(arr2)
+// console.log(increment_by_one(arr2))
 
 // const str = '123';
 
@@ -58,3 +56,30 @@ console.log(increment_by_one(arr2))
 // a = '6145390195186705543'
 // b = parseInt(a)
 // console.log(b)
+
+
+
+var plusOne = function(digits) {
+    let end = digits.length-1 // let end be the last index of the array of digits
+    digits[end] += 1 // increase the digit in the last index by one
+    console.log(digits[end])
+    while (digits[end] > 9 ){ // loop runs while last digit greater than 9 (ie is 10 and needs to carry over)
+        digits[end] = 0; // set current digit to 0
+        console.log(digits[end])
+        end--; // move to next digit (in order to "carry the one")
+        console.log(end)
+        if (end < 0){ // if end is less than zero, we need to add an index at front with a 1
+            return [1, ...digits] // makes a new array with 1 and then everything in digits
+        }
+        else { //otherwise
+            digits[end] += 1 // we carry the one
+        }
+    }
+    return digits
+};
+
+arr1 = [1,2,3,4,5]
+arr2 = [6,1,4,5,3,9,0,1,9,5,1,8,6,7,0,5,3,1,9]
+
+
+console.log(plusOne(arr2))

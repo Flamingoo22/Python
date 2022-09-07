@@ -8,3 +8,23 @@
 -- FROM fav_books
 -- WHERE fav_books.id = first_fav3
 
+
+
+ask if can go over the files line by line together if not maybe the previous lecture vids
+
+grouping
+
+how to sum only the selected data
+
+sakila not working table doesnt exist
+
+code review on users crud modularized 
+
+string interpolation vs prepared statements
+
+keyword from rainbow?
+
+why use %()s on id and not %()d
+
+dojo = cls( results[0] )???
+    return the first row what does that mean

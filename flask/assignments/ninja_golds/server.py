@@ -15,38 +15,34 @@ def index():
 def process_money():
     time = datetime.datetime.now()
     x = time.strftime("%x %X")
-    farm = random.randint(10,20)
-    cave = random.randint(5,10)
-    house = random.randint(2,5)
-    casino = random.randint(-50,50)
-    if 'display' and 'gold' in session:
-        session['name'] = request.form['name']
-        session.pop('name')
-        session['name'] = request.form['name']
-        print(session['name'])
-    else:
+    
+    location = {
+        "farm":(10,20),
+        "cave":(5,10),
+        "house":(2,5),
+        "casino":(-50,50)
+    }
+    
+    gold = random.randint(*location[request.form['name']])
+    
+    # farm = random.randint(10,20)
+    # cave = random.randint(5,10)
+    # house = random.randint(2,5)
+    # casino = random.randint(-50,50)
+    if 'gold' not in session:
         session["gold"] = 0
         session['display'] = [ ]
         session['name'] = request.form['name']
-    if session['name'] == 'farm':
-        session['gold'] += farm
-        session['display'].append(f'Earned {farm} golds from the {session["name"]}!  {x}')
-        print(farm)
-    elif session['name'] == 'cave':
-        session['gold'] += cave
-        session['display'].append(f'Earned {cave} golds from the {session["name"]}!  {x}')
-        print(cave)
-    elif session['name'] == 'house':
-        session['gold'] += house
-        print(house)
-        session['display'].append(f'Earned {house} golds from the {session["name"]}!  {x}')
+    
+    session['gold'] += gold
+    
+    if gold > 0:
+        session['display'].append(f'Earned {gold} golds from the {request.form["name"]}!  {x}')
     else:
-        session['gold'] += casino
-        if casino > 0:
-            session['display'].append(f'Entered a casino and won {casino} golds! CONGRAT!  {x}')
-        else:
-            session['display'].append(f'Entered a casino and lost {casino} golds... Ouch..  {x}')
-        # print(casino)
+        # session['gold'] += casino
+        # if casino > 0:
+        # session['display'].append(f'Entered a casino and won {casino} golds! CONGRAT!  {x}')
+        session['display'].append(f'Entered a {request.form["name"]} and lost {gold} golds... Ouch..  {x}')
     return redirect('/')
 
 
