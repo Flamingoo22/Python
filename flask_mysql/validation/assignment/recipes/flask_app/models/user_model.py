@@ -39,13 +39,12 @@ class User():
         return cls(result[0])
     
     @classmethod
-    def show_all(cls, data):
+    def show_all(cls):
         query = '''
                 SELECT *
                 FROM users
-                LEFT JOIN ;
                 '''
-        results = connectToMySQL('recipe').query_db(query, data)
+        results = connectToMySQL('recipe').query_db(query)
         users = []
         if results:
             for row_data in results:
@@ -100,49 +99,57 @@ class User():
     @staticmethod
     def validate_register(user):
         is_valid = True
-        if len(user['fname']) == 0:
-            flash('First Name is required.')
+        if len(user['fname']) <= 0:
+            flash('First Name is required.', 'err_users_first_name')
             is_valid = False
-        if len(user['lname']) == 0:
-            flash('Last Name is required.')
+        if len(user['lname']) <= 0:
+            flash('Last Name is required.', 'err_users_last_name')
             is_valid = False
-        if len(user['email']) < 3:
-            flash('Email is required.')
+        if len(user['email']) <= 0:
+            flash('Email is required.', 'err_users_email')
             is_valid = False
-        if not EMAIL_REGEX.match(user['email']):
-            flash("Invalid email address!")
+        elif not EMAIL_REGEX.match(user['email']):
+            flash("Invalid email address!", 'err_users_invalid_email')
             is_valid = False
-        if len(user['password']) == 0:
-            flash('Password is required.')
+        else:
+            all_users = User.show_all()
+            for user_instance in all_users:
+                if user['email'] in user_instance.email:
+                    flash('Email already registered!', 'err_users_repeated_email')
+                    is_valid = False
+                    break
+        if len(user['password']) <= 0:
+            flash('Password is required.', 'err_users_password')
             is_valid = False
         if user['confirm_password'] != user["password"]:
-            flash('Password do not match')
+            flash('Password do not match', 'err_users_confirm_password')
             is_valid = False
         return is_valid
     
     @staticmethod
     def validate_login(user):
         is_valid = True
-        if len(user['email']) < 3:
-            flash('Email is required.')
+        if len(user['email']) <= 0:
+            flash('Email is required.', 'err_users_login_email')
             is_valid = False
         elif not EMAIL_REGEX.match(user['email']):
-            flash("Invalid email address!")
+            flash("Invalid email address!", 'err_users_login_invalid_email')
             is_valid = False
         if len(user['pw']) <= 0:
-            flash('Password is required.')
+            flash('Password is required.', 'err_users_login_password')
             is_valid = False
         if is_valid:
             if not User.find_user_by_email({'email':user['email']}):
-                flash("Invalid email address!")
+                flash("Email not Found!", 'err_users_email')
                 is_valid = False
             else: 
                 potential_user = User.find_user_by_email({'email':user['email']})
                 if not bcrypt.check_password_hash(potential_user.password, user['pw']):
-                    flash('Incorrect Password')
+                    flash('Incorrect Password', 'err_users_first_name')
                     is_valid = False
                 else:
                     session["uuid"] = potential_user.id
+                    session["username"] = potential_user.first_name
                 
         return is_valid
 

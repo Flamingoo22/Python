@@ -1,6 +1,7 @@
 from unittest import result
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask_app.models.user_model import User
+from flask import flash, session
 
 class Recipe():
     def __init__(self, db_data):
@@ -25,7 +26,8 @@ class Recipe():
     def edit(cls, data):
         query = '''
                 UPDATE recipes
-                SET (recipes.name = %(name)s, recipes.description=%(description)s, recipes.below30=%(below30)s, recipes.instruction=%(instruction)s);
+                SET recipes.name = %(name)s, recipes.description = %(description)s, recipes.below30=%(below30)s, recipes.instruction=%(instruction)s, recipes.cooked_date=%(cooked_date)s
+                WHERE recipes.id = %(id)s;
                 '''
         return connectToMySQL('recipe').query_db(query, data)
     @classmethod
@@ -141,3 +143,23 @@ class Recipe():
             return recipes
         else:
             return False
+        
+    @staticmethod
+    def validate_upload(data):
+        is_valid = True
+        if len(data['name']) <=3:
+            flash('Name is required', 'err_recipes_name')
+            is_valid = False
+        if len(data['description']) <=3:
+            flash('Description Cannot be Empty','err_recipes_description')
+            is_valid = False
+        if 'below30' not in data:
+            flash('Please Specify cooking time is over/under 30 minutes','err_recipes_below30')
+            is_valid = False
+        if len(data['instruction']) <=3:
+            flash('Instrution Cannot be Empty','err_recipes_instruction')
+            is_valid = False
+        if len(data['cooked_date']) <=0:
+            flash('cooked_time is required','err_recipes_cooked_date')
+            is_valid = False
+        return is_valid
