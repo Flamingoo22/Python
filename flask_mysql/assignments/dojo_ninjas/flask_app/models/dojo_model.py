@@ -23,13 +23,11 @@ class Dojo:
                 ON ninjas.dojo_id = dojos.id 
                 WHERE dojos.id = %(dojo_id)s;
                 '''
-        results = connectToMySQL('dojos_and_ninjas').query_db( query , data )  #list of dictionary
+        results = connectToMySQL('dojos_and_ninjas').query_db( query , data ) 
         print(results)
-        # results will be a list of topping objects with the burger attached to each row. 
-        dojo = cls( results[0] )  #turn the dicionary into objects
+        dojo = cls( results[0] ) 
         dojo.ninjas = []  
         for row_from_db in results:
-            # Now we parse the burger data to make instances of burgers and add them into our list.
             ninja_data = {
                 "id" : row_from_db["ninjas.id"],
                 "dojo_id" : row_from_db["dojo_id"],
@@ -40,7 +38,7 @@ class Dojo:
                 "updated_at" : row_from_db["ninjas.updated_at"]
             }
             dojo.ninjas.append( ninja_model.Ninja( ninja_data ) )
-        print(dojo)
+        print( dojo )
         return dojo
     
     @classmethod

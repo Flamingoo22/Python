@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Display</title>
+</head>
+<body>
+    <table>
+        <th>
+            <td>Email Address Entered:</td>
+        </th>
+        <tbody>
+            {% for email in emails %}
+            <tr>{{ email.email }} {{ email.created_date }}</tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/">HOME</a>
+</body>
+</html>

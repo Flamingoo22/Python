@@ -32,6 +32,7 @@ def info(user_id):
     }
     return render_template('user_info.html', user = User.get_one(data))
 
+
 @app.route('/users/<int:user_id>/edit', methods = ['POST', 'GET'])
 def edit(user_id):
     if request.method == 'POST':
@@ -48,6 +49,7 @@ def edit(user_id):
             'id': user_id
         }
         return render_template('edit_user.html', user = User.get_one(data))
+
 
 @app.route('/delete/<int:user_id>')
 def delete(user_id):

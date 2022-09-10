@@ -1,0 +1,29 @@
+hashing
+    one-way   
+    irreversible
+
+
+encryption
+    two ways
+    reversible
+        needs the key to access info
+        good for bank info and private text
+
+
+1. Store sensitive info directly to database
+    WORST IDEA 
+        easily hacked
+2. Hash the password
+    Better, not good enough
+        computer generate random strings dedicated for each password and store them in database instead of the password itself
+            each password combination has its unique hash
+                Still easily hackable given the technology
+3. Add the "salt" to the password and hash it
+    Better than better, but still can be better
+        hash is determined by length of original password, adding the salt would increase the length of password and the hash will be more complex
+            Still hackable if hacker get into your database and retrieve our "salt"
+4. Add unique 'salt' to each user password
+    Best we have got, the point is not to worry hacker get the salt, but to add another test subject to slow down hacker from getting each user password
+        Still hackable, just slower
+
+5.Brypt / not the best hashing algorithum, but slowest. User cannot notice the differences, but would slow down hacker's process.

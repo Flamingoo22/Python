@@ -9,7 +9,7 @@ WHERE city.city_id = 312;
 
 
 -- 2. What query would you run to get all comedy films? Your query should return film title, description, release year, rating, special features, and genre (category).
-SELECT film.title, film.description, film.release_year, film.rating, film.special_features, category.name
+SELECT film.title, film.description, film.release_year, film.rating, film.special_features, category.name AS genre
 FROM film
 JOIN film_category
 ON film.film_id = film_category.film_id

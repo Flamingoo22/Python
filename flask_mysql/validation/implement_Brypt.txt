@@ -1,0 +1,16 @@
+1. pipenv install flask-bcrypt
+2. in the model file:
+    from flask_bcrypt import Bcrypt        
+    bcrypt = Bcrypt(app)     # we are creating an object called bcrypt, 
+                             # which is made by invoking the function Bcrypt with our app as an argument
+
+To generate a hash, provide the password to be hashed as an argument
+    bcrypt.generate_password_hash(password_string)
+To compare passwords, provide the hash as the first argument and the password to be checked as the second argument
+    bcrypt.check_password_hash(hashed_password, password_string)
+
+
+$2b$12$sqjyok5RQccl9S6eFLhEPuaRaJCcH3Esl2RWLm/cimMIEnhnLb7iCcopy
+We will store this string in our database, and there is a lot of information contained in it! 
+Within the first set of $ signs, we have the Bcrypt ID (in this case, 2b). 
+Between the next set of $ signs, the number 12 tells us how many rounds of hashing we did - this is what slows Bcrypt down. If you want it to take even longer, you may pass a larger value as a second argument - just for fun, try asking it to run 17 rounds! The next 22 characters is the salt (128 bits), and the rest is our 184-bit hash.
