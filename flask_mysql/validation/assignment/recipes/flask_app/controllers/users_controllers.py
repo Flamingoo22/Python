@@ -36,9 +36,17 @@ def register():
 
 @app.route('/login', methods = ['POST'])
 def login():
-
     if not User.validate_login(request.form):
         return redirect('/')
     
     return redirect('/recipes')
+
+
+@app.route("/logout")
+def logout():
+    if 'uuid' not in session:
+        return redirect('/')
+    del session['uuid']
+    # del session['username']
+    return redirect('/')
 

@@ -83,11 +83,4 @@ def delete(recipe_id):
     Recipe.delete({'id':recipe_id})
     return redirect('/recipes')
 
-@app.route("/logout")
-def logout():
-    if 'uuid' not in session:
-        return redirect('/')
-    del session['uuid']
-    del session['username']
-    return redirect('/')
 
