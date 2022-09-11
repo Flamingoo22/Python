@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Dashoard</title>
+</head>
+<body style="font-family:cursive">
+    <div class="container" style="background-color: rgb(5, 83, 100); color: aliceblue; padding: 40px 5%; gap:5px ;border-radius: 10px;">
+        <div class="navbar">
+            <h1 style="font-size: 3em">CodingDojo Wall</h1>
+            <div>
+                <p style="font-size: 2em">Welcome {{user.first_name}}</p>
+                <a href="/logout" class="btn btn-danger btn-outline-warning">Logout</a>
+            </div>
+        </div>
+        <div class="navbar">
+            <div>
+                <h2>Message(s) for You  ({{messages|length}})</h2>
+                {% for message in messages %}
+                <div class="navbar border border-4 px-2 border-dark bg-gradient ">
+                    <div>
+                        <p>{{message.sender}} said {{message.time_span()}}:</p>
+                        <p>{{message.message}}</p>
+                    </div>
+                    <p><a href="/message/delete/{{message.id}}" class="btn btn-warning btn-outline-danger">DELETE</a></p>
+                </div>
+                {% endfor %}
+            </div>
+            <div>
+                <h2>Send Message</h2>
+                {% for user in users %}
+                {% if user.id != session.uuid %}
+                <form action="/message/send" method="POST">
+                    <input type="hidden" name="sender_id" value="{{session.uuid}}">
+                    <input type="hidden" name="receiver_id" value="{{user.id}}">
+                    <label for="message">Message <span class="text-primary">{{user.first_name}}</span></label>
+                    <div class="d-flex">
+                        <input type="text" name="message" class="form-control">
+                        <input type="submit" value="Send" class="btn btn-outline-primary btn-warning">
+                    </div>
+                </form>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

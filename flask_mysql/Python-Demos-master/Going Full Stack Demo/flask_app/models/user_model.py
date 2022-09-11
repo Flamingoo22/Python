@@ -53,7 +53,6 @@ class User:
         query = 'DELETE FROM users WHERE id = %(id)s;'
         results = connectToMySQL(mysql_db).query_db(query, data)
         return results
-    
-   
+
 
 
