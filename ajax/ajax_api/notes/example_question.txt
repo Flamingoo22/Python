@@ -1,0 +1,38 @@
+let link = state => {
+  return new Promise(function(resolve, reject) {
+    if (state) { 
+      resolve('success'); 
+    } else { 
+      reject('error');
+    }
+  });
+}
+ 
+let promiseChain = link(true);
+ 
+promiseChain
+.then( data => {  
+   console.log(data + " 1");
+   return link(true);
+})
+.then( data => {
+   console.log(data+ " 2");
+   return link(true);
+});
+
+
+
+const add2 = (num) => {
+  
+}
+
+What is the syntax? .then( data =>{
+    console.log(data +'1');                   // what does data stand for? and when do we need to use ";"
+    return link(true)                         //this is to pass in to the second promise
+})
+
+what does it mean .then returns a promise? 
+    so we dont have to construct promise function when using then??
+
+
+for async function, what does cocurrency use for? For clear lines and debug purpose isn't writing out multiple async function better?

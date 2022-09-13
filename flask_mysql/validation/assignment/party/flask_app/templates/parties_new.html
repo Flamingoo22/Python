@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <h1>Add a Party</h1>
+            <a href="/dashboard" class="btn btn-primary">Home</a>
+        </div>
+        <form action="/parties/create" method = 'POST'>
+            <label for="what" class="form-label">What:</label>
+            <input type="text" name="what" class="form-control">
+            <label for="location" class="form-label">Location:</label>
+            <input type="text" name="location" class="form-control">
+            <label for="date" class="form-label">Date:</label>
+            <input type="text" name="date" class="form-control">
+            <div>
+                All ages:
+                <input type="radio" name="all_ages" id="true" value="1">
+                <label for="true">True</label>
+                <input type="radio" name="all_ages" id="false" value="0">
+                <label for="false">False</label>
+            </div>
+            <label for="description">Description:</label>
+            <textarea name="description" id="description" cols="30" rows="10"></textarea>
+            <button class="btn btn-primary">Add Party</button>
+        </form>
+    </div>
+</body>
+</html>

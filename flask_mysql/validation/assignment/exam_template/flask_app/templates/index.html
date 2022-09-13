@@ -23,7 +23,7 @@
             <p class="alert alert-danger">{{message}}</p>
             {% endfor %}
 
-            <label for="email" class="form-label">Email:</label>
+            <label for="email">Email:</label>
             <input type="text" name="email" class="form-control">
             {% for message in get_flashed_messages(category_filter=['err_users_email']) %}
             <p class="alert alert-danger">{{message}}</p>

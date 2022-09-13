@@ -25,6 +25,7 @@ class User():
                 '''
         return connectToMySQL(DATABASE).query_db(query, data)
     
+        
     @classmethod
     def show_all(cls):
         query = '''

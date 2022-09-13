@@ -1,0 +1,184 @@
+in the file folder
+    pipenv requirements > requirements.txt
+    touch .gitignore
+        to find generate ignore file
+            https://www.toptal.com/developers/gitignore
+
+create repo in the github
+    git init
+    git add README.md
+    git commit -m 'first commit'
+    branch -M main
+    git remote add origin github_url
+    git push -u origin main
+
+
+
+cd projects/pem_keys
+
+
+ssh -i "not_a_nice_key.pem" ubuntu@ec2-54-160-250-93.compute-1.amazonaws.com
+    //The chmod command will properly set the permissions for a key name keyname.pem.
+    //The ssh command will SSH into your AWS server instance, giving you remote terminal access.
+
+
+sudo apt-get update
+sudo apt-get install python3-pip nginx git -y
+sudo apt-get update
+
+
+//Install venv so we can create a virtual environment.
+sudo apt-get install python3-venv                      // answer Yes when prompted!
+
+
+//Next, we will need to install our mySQL server:
+sudo apt-get install mysql-server                      // answer Yes when prompted!
+sudo apt-get update
+
+//First log into the MySQL server.
+sudo mysql -uroot -p
+# enter the same password as MySQL on your computer when prompted
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
+
+FLUSH PRIVILEGES;
+
+quit
+
+sudo mysql_secure_installation
+    no
+    no
+    yes
+    yes
+    yes
+    yes
+
+mysql -uroot -p
+# enter password when prompted
+
+//export schema next 
+    data export 
+        select schema
+            include create schema
+                select export
+                    paste the file to terminal
+
+//verify databases
+SHOW DATABASES;
+    should have:
+        information_schema
+        mysql
+        performance_schema
+        pets_schema
+        sys
+        5 rows in set
+exit
+
+git clone {{ url copied from github project }}
+cd {{ project }}
+
+~/myRepoName$ python3 -m venv venv          // create the environment and call it venv
+~/myRepoName$ source . venv/bin/activate                    // activate the environment
+(venv) ~/myRepoName$ pip3 install -r requirements.txt      // install everything that requirements.txt says you need
+(venv) ~/myRepoName$ pip3 install gunicorn==19.6.0         // install gunicorn
+(venv) ~/myRepoName$ pip3 install {{anything you need that was not already in requirements.txt}}
+
+
+//Gunicorn
+(venv) ~/myRepoName$ sudo vim wsgi.py                     // this will open the new, empty file for us
+
+from server import app as application
+if __name__ == "__main__":
+    application.run()
+
+(venv) ~/myRepoName$ gunicorn --bind 0.0.0.0:5000 wsgi:application
+
+//if everything runs correctly, expected output:
+    [2016-12-27 05:45:56 +0000] [8695] [INFO] Starting gunicorn 19.6.0
+    [2016-12-27 05:45:56 +0000] [8695] [INFO] Listening at: http://0.0.0.0:5000 (8695)
+    [2016-12-27 05:45:56 +0000] [8695] [INFO] Using worker: sync
+    [2016-12-27 05:45:56 +0000] [8700] [INFO] Booting worker with pid: 8700
+
+//Deactivate the virtual environment with:
+
+CTRL + C
+(venv) ~/myRepoName$ deactivate
+
+sudo vim /etc/systemd/system/gunicorn.service
+
+[Unit]
+Description=Gunicorn instance
+After=network.target
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/{{repo name}}
+Environment="PATH=/home/ubuntu/{{repo name}}/venv/bin"
+ExecStart=/home/ubuntu/{{repo name}}/venv/bin/gunicorn --workers 3 --bind unix:{{project}}.sock -m 007 wsgi:application
+[Install]
+WantedBy=multi-user.target
+
+
+// for the recipe assignment:
+[Unit]
+Description=Gunicorn instance
+After=network.target
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/deploy_flask
+Environment="PATH=/home/ubuntu/deploy_flask/venv/bin"
+ExecStart=/home/ubuntu/deploy_flask/venv/bin/gunicorn --workers 3 --bind unix:recipes.sock -m 007 wsgi:application
+[Install]
+WantedBy=multi-user.target
+
+//After we create this file, we need to enable it, so that it starts when the server boots:
+
+sudo systemctl start gunicorn
+sudo systemctl enable gunicorn
+
+sudo vim /etc/nginx/sites-available/{{project}}
+
+server {
+    listen 80;
+    server_name {{your public ip}};
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/home/ubuntu/{{repo name}}/{{project}}.sock;
+    }
+}
+
+server {
+    listen 80;
+    server_name 54.160.250.93;
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/home/ubuntu/deploy_flask/recipes.sock;
+    }
+}
+
+sudo ln -s /etc/nginx/sites-available/{{project}} /etc/nginx/sites-enabled
+
+sudo nginx -t
+
+sudo rm /etc/nginx/sites-enabled/default
+
+sudo service nginx restart
+
+exit
+
+
+///////
+NOTES TO SELF!!!
+how to assess error log in nginx
+    sudo nano /var/log/nginx/error.log
+to access directory
+    cd /etc/nginx/sites-enabled
+permission delete 
+    sudo rm -r ./filename
+
+
+
+QUESTIONS:
+how do we choose which directory to work with?
+    do we just create new instance in amazonaws for each deploy project

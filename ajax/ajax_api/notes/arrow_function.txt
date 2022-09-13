@@ -1,0 +1,15 @@
+// Traditional Function
+function bob(a) {
+  return a + 100;
+}
+
+// Arrow Function
+const bob2 = (a) => a + 100;
+
+
+
+function add2(a){
+    return a+2
+}
+
+add2=(a)=>a+2;

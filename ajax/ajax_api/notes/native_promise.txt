@@ -1,0 +1,55 @@
+What is Promise?
+    promises are objects taht represent the eventual outcome of an asynchronous operation.
+    A promise object can be in one of three states:
+        pending: the initial states
+        fulfilled: the operation has completed succesfuly and promise now has a resolved value.
+        rejected: the operation failed, the reason usually an error
+
+const executorFunction = (resolve, reject) => { };
+const myFirstPromise = new Promise(executorFunction);
+
+resolve is a function with one argument. Under the hood, if invoked, resolve() will change the promise’s status from pending to fulfilled, and the promise’s resolved value will be set to the argument passed into resolve().
+reject is a function that takes a reason or error as an argument. Under the hood, if invoked, reject() will change the promise’s status from pending to rejected, and the promise’s rejection reason will be set to the argument passed into reject().
+
+
+const inventory = {
+  sunglasses: 1900,
+  pants: 1088,
+  bags: 1344
+};
+
+// Write your code below:
+
+const myExecutor = (resolve, reject) => {
+  if (inventory['sunglasses']>0){
+    resolve('Sunglasses order processed.')
+  }else{
+    reject('That item is sold out.')
+  }
+}
+
+const orderSunglasses = () => new Promise(myExecutor)
+
+const orderPromise = orderSunglasses()
+
+console.log(orderPromise)
+
+This process of chaining promises together is called composition. Promises are designed with composition in mind! Here’s a simple promise chain in code:
+
+
+Review
+Promises are a difficult concept even for experienced developers, so pat yourself on the back. You’ve learned a ton about asynchronous JavaScript and promises. Let’s review:
+
+Promises are JavaScript objects that represent the eventual result of an asynchronous operation.
+Promises can be in one of three states: pending, resolved, or rejected.
+A promise is settled if it is either resolved or rejected.
+We construct a promise by using the new keyword and passing an executor function to the Promise constructor method.
+setTimeout() is a Node function which delays the execution of a callback function using the event-loop.
+We use .then() with a success handler callback containing the logic for what should happen if a promise resolves.
+We use .catch() with a failure handler callback containing the logic for what should happen if a promise rejects.
+Promise composition enables us to write complex, asynchronous code that’s still readable. We do this by chaining multiple .then()‘s and .catch()‘s.
+To use promise composition correctly, we have to remember to return promises constructed within a .then().
+We should chain multiple promises rather than nesting them.
+To take advantage of concurrency, we can use Promise.all().
+
+The Promise.all() method runs many promises in parallel, waits for all of them to resolve, and returns an array of results as its fulfilled value.

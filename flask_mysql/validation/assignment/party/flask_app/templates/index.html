@@ -9,7 +9,10 @@
 </head>
 <body style="display:flex; justify-content: space-between; padding:0 20%">
     <div>
-        <form action="/register" method = 'POST' style="display:flex; flex-direction:column; background-color: rgb(5, 83, 100);color: aliceblue; padding: 10% 20%; gap:5px; width: 50vh; border-radius: 10px;">
+        {% for messgae in get_flashed_messages(category_filter = ['reg']) %}
+            <p>{{message}}</p>
+        {% endfor %}
+        <form action="/users/register" method = 'POST' style="display:flex; flex-direction:column; background-color: rgb(5, 83, 100);color: aliceblue; padding: 10% 20%; gap:5px; width: 50vh; border-radius: 10px;">
             <h2 class="fs-2 text-warning">Registeration Form</h2>
             <label for="first_name">First Name:</label>
             <input type="text" name="first_name" class="form-control">
@@ -51,7 +54,10 @@
         </form>
     </div>
     <div>
-        <form action="/login" method ='POST' style="display:flex; flex-direction:column; background-color: rgb(5, 83, 100);color: aliceblue; padding: 10% 20%; gap:5px; width: 50vh; border-radius: 10px;">
+        {% for messgae in get_flashed_messages(category_filter = ['log']) %}
+            <p>{{message}}</p>
+        {% endfor %}
+        <form action="/users/login" method ='POST' style="display:flex; flex-direction:column; background-color: rgb(5, 83, 100);color: aliceblue; padding: 10% 20%; gap:5px; width: 50vh; border-radius: 10px;">
             <h2 class="fs-2 text-warning text-center">LOG IN</h2>
             <label for="email">Email:</label>
             <input type="text" name="email" class="form-control">
